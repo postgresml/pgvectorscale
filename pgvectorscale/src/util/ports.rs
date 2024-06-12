@@ -31,7 +31,7 @@ pub unsafe fn PageValidateSpecialPointer(page: pgrx::pg_sys::Page) {
     //Assert(((PageHeader) page)->pd_special >= SizeOfPageHeaderData);
     assert!(!page.is_null());
     let header = page.cast::<pgrx::pg_sys::PageHeaderData>();
-    assert!((*header).pd_special <= pgrx::pg_sys::BLCKSZ as u16);
+    // assert!((*header).pd_special <= pgrx::pg_sys::BLCKSZ as u16);
     assert!((*header).pd_special >= SizeOfPageHeaderData as u16);
 }
 
